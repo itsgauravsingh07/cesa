@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Details - CESA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .certificate-section {
+            padding: 120px 0 60px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,0,0,0.85));
+        }
+
+        .certificate-container {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .certificate-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+        }
+
+        .certificate-header h1 {
+            color: #00ff9d;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-header p {
+            color: #b4b4b4;
+            margin: 0;
+        }
+
+        .certificate-details {
+            color: #fff;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
+
+        .detail-label {
+            flex: 0 0 200px;
+            color: #00ff9d;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            flex: 1;
+            color: #b4b4b4;
+        }
+
+        .certificate-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-download {
+            background: #00ff9d;
+            color: #000;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        .student-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            object-fit: cover;
+            border: 2px solid rgba(0, 255, 157, 0.2);
+            margin-bottom: 1rem;
+        }
+
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+        }
+
+        .loading-spinner .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: #00ff9d;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .error-container i {
+            font-size: 3rem;
+            color: #ff3b30;
+            margin-bottom: 1rem;
+        }
+
+        .error-container h2 {
+            color: #ff3b30;
+            margin-bottom: 1rem;
+        }
+
+        .error-container p {
+            color: #b4b4b4;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .detail-row {
+                flex-direction: column;
+            }
+
+            .detail-label {
+                margin-bottom: 0.5rem;
+            }
+
+            .certificate-actions {
+                flex-direction: column;
+            }
+
+            .btn-download {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <div class="brand-container">
+                    <img src="../assets/images/cesa-logo.png" alt="CESA Logo" class="brand-logo">
+                    <div class="brand-text">
+                        <span class="brand-title">CESA</span>
+                        <span class="brand-subtitle">ISBM College of Engineering</span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <div class="toggler-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="verify.html">Verify Another</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Certificate Section -->
+    <section class="certificate-section">
+        <div class="container">
+            <!-- Loading Spinner -->
+            <div class="loading-container" id="loadingContainer">
+                <div class="loading-spinner">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-container" id="errorContainer">
+                <i class="bi bi-exclamation-circle"></i>
+                <h2>Certificate Not Found</h2>
+                <p>The certificate number you provided could not be found in our records.</p>
+                <a href="verify.html" class="btn btn-outline-light">Try Again</a>
+            </div>
+
+            <!-- Certificate Details -->
+            <div class="certificate-container" id="certificateContainer" style="display: none;">
+                <div class="certificate-header">
+                    <img src="../assets/images/default-avatar.png" alt="Student" class="student-avatar" id="studentAvatar">
+                    <h1>Certificate Details</h1>
+                    <p>Verified and Authenticated by CESA</p>
+                </div>
+
+                <div class="certificate-details">
+                    <div class="detail-row">
+                        <div class="detail-label">Registration No.</div>
+                        <div class="detail-value" id="regNo"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Certificate No.</div>
+                        <div class="detail-value" id="certNo"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Full Name</div>
+                        <div class="detail-value" id="fullName"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Event</div>
+                        <div class="detail-value" id="event"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Issue Date</div>
+                        <div class="detail-value" id="issueDate"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Valid Until</div>
+                        <div class="detail-value" id="validUntil"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Rank/Achievement</div>
+                        <div class="detail-value" id="rank"></div>
+                    </div>
+                </div>
+
+                <div class="certificate-actions">
+                    <a href="#" class="btn btn-download" id="downloadBtn">
+                        <i class="bi bi-download me-2"></i>Download Certificate
+                    </a>
+                    <a href="verify.html" class="btn btn-outline-light">
+                        <i class="bi bi-search me-2"></i>Verify Another
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted mb-0">&copy; 2025 CESA. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-muted mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> by CESA Tech Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Google Sheets API configuration
+        const SHEET_ID = 'YOUR_SHEET_ID';
+        const API_KEY = 'YOUR_API_KEY';
+
+        // Get certificate number from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const certificateNumber = urlParams.get('cert');
+
+        async function fetchCertificateDetails() {
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1?key=${API_KEY}`
+                );
+                
+                const data = await response.json();
+                const rows = data.values || [];
+                
+                // Find certificate data (assuming first row is headers)
+                const certificate = rows.find(row => row[2] === certificateNumber);
+                
+                if (certificate) {
+                    // Update UI with certificate details
+                    document.getElementById('regNo').textContent = certificate[1];
+                    document.getElementById('certNo').textContent = certificate[2];
+                    document.getElementById('fullName').textContent = certificate[3];
+                    document.getElementById('event').textContent = certificate[6];
+                    document.getElementById('issueDate').textContent = certificate[4];
+                    document.getElementById('validUntil').textContent = certificate[5];
+                    document.getElementById('rank').textContent = certificate[8];
+                    
+                    // Update avatar if available
+                    if (certificate[7]) {
+                        document.getElementById('studentAvatar').src = certificate[7];
+                    }
+                    
+                    // Update download link
+                    if (certificate[9]) {
+                        document.getElementById('downloadBtn').href = certificate[9];
+                    }
+                    
+                    // Show certificate container
+                    document.getElementById('loadingContainer').style.display = 'none';
+                    document.getElementById('certificateContainer').style.display = 'block';
+                } else {
+                    // Show error message
+                    document.getElementById('loadingContainer').style.display = 'none';
+                    document.getElementById('errorContainer').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loadingContainer').style.display = 'none';
+                document.getElementById('errorContainer').style.display = 'block';
+            }
+        }
+
+        // Fetch certificate details when page loads
+        fetchCertificateDetails();
+    </script>
+</body>
+</html> 

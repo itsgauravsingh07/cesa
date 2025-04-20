@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CESA Team - ISBM College of Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../assets/images/cesa-logo.png" as="image">
+    <link rel="preload" href="../assets/css/style.css" as="style">
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <div class="brand-container">
+                    <img src="../assets/images/cesa-logo.png" alt="CESA Logo" class="brand-logo">
+                    <div class="brand-text">
+                        <span class="brand-title">CESA</span>
+                        <span class="brand-subtitle">ISBM College of Engineering</span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <div class="toggler-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="bi bi-house-door"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-info-circle"></i>
+                            <span>About Us</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="about.html">About CESA</a></li>
+                            <li><a class="dropdown-item" href="partners.html">Our Partners</a></li>
+                            <li><a class="dropdown-item" href="charter.html">CESA Charter</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/events.html">
+                            <i class="bi bi-calendar-event"></i>
+                            <span>Events</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../pages/team.html">
+                            <i class="bi bi-people"></i>
+                            <span>Team</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/gallery.html">
+                            <i class="bi bi-images"></i>
+                            <span>Gallery</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/verify.html">
+                            <i class="bi bi-award"></i>
+                            <span>Certificates</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/contact.html">
+                            <i class="bi bi-envelope"></i>
+                            <span>Contact Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login-link" href="../pages/login.html">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            <span>Login</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Team Header Section -->
+    <section class="team-header py-5">
+        <div class="container">
+            <div class="header-content text-center" data-aos="fade-up">
+                <h1 class="display-4 fw-bold mb-4">Our Team</h1>
+                <div class="header-divider"></div>
+                <p class="lead mb-5">Meet the dedicated individuals who make CESA a vibrant and successful organization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Coordinator Section -->
+    <section class="team-section py-5 bg-gradient">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Faculty Coordinator</h2>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="team-card faculty-card">
+                        <div class="team-image">
+                            <img src="../assets/images/faculty/HOD.jpg" alt="Faculty Coordinator" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Dr. Kailash N. Tripathi</h4>
+                        <p>Associate Professor & Head of Department</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="team-card faculty-card">
+                        <div class="team-image">
+                            <img src="../assets/images/faculty/Vilas-Joshi.jpg" alt="Faculty Coordinator" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Dr. Vilas R. Joshi</h4>
+                        <p>Associate Professor & CESA Faculty Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Team Section -->
+    <section class="team-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Core Team</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/core/vedanth.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Vedanth Bakwad</h4>
+                        <p>President</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/core/gaurav.jpeg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Gaurav Singh</h4>
+                        <p>Vice President</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/core/Jyoti.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Jyoti Satkar</h4>
+                        <p>Secretary</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Team Section -->
+    <section class="team-section py-5 bg-gradient">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Technical Team</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Anuj.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Anuj Gurap</h4>
+                        <p>Technical Head</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Devshree.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Devshree </h4>
+                        <p>Technical Deputy</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Ayush.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Ayush Bhor</h4>
+                        <p>App Developer</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Aditi.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Aditi Karanje</h4>
+                        <p>UI/UX Designer</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Anmol.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Anmol Karande</h4>
+                        <p>Backend Developer</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Vedant.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Vedant Shingare</h4>
+                        <p>Database Specialist</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Sayee.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Sayee Somuse</h4>
+                        <p>AI/ML Engineer</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Sneha.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Sneha Shingade</h4>
+                        <p>DevOps Engineer</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/technical/Bhavesh.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Bhavesh Wagh</h4>
+                        <p>Security Expert</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Team Section -->
+    <section class="team-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Media Team</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/media/Shreeyash.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Shreeyash Mandage</h4>
+                        <p>Media Head</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/media/Sagar.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Sagar Shirode</h4>
+                        <p>Media Deputy</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/media/Siddhesh.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Siddhesh Ichake</h4>
+                        <p>Photographer</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/media/Saad.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Saad Jamadar</h4>
+                        <p>Video Editor</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/media/Vecant.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>VECANT</h4>
+                        <p>Graphic Designer</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Team Section -->
+    <section class="team-section py-5 bg-gradient">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Cultural Team</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Prajwal.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Prajwal Lokhande</h4>
+                        <p>Cultural Head</p>
+                        <div class="social-links mt-3"> 
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Nikita.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Nikita Bhosle</h4>
+                        <p>Cultural Deputy</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Vaibhavi.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Vaibhavi Jadhav</h4>
+                        <p>Music Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Rohini.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Rohini Korde</h4>
+                        <p>Drama Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Vivek.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Vivek Kumavat</h4>
+                        <p>Art Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Sayali.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Sayali Gadage</h4>
+                        <p>Literary Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Vaishnavi.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Vaishnavi Gadhave</h4>
+                        <p>Photography Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Tejaswini.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Tejaswini Sonar</h4>
+                        <p>Fashion Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Shravani.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Shravani Kadam</h4>
+                        <p>Event Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Sneha.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Sneha Kamble</h4>
+                        <p>Cultural Secretary</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Vaishnavi-Naik.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Vaishnavi Naik</h4>
+                        <p>Cultural Treasurer</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/cultural/Mansi.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Manasi Supekar</h4>
+                        <p>Cultural Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Team Section -->
+    <section class="team-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Sports Team</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/sports/Soham.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Soham Gharal</h4>
+                        <p>Sports Head</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/sports/Bhupen.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Bhupen Chirmade</h4>
+                        <p>Sports Deputy</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/sports/Vedant.jpg" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Vedant Jangam</h4>
+                        <p>Basketball Captain</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand Column -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <img src="../assets/images/cesa-logo.png" alt="CESA Logo" class="footer-logo mb-3">
+                        <h5 class="text-white mb-3">CESA - ISBM College of Engineering</h5>
+                        <p class="text-muted mb-0">Computer Engineering Students Association</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="verify.html">Certificates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Resources</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="partners.html">Our Partners</a></li>
+                        <li><a href="charter.html">CESA Charter</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Column -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <div class="contact-info">
+                        <p class="text-muted mb-3">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            ISBM College of Engineering, Nande, Pune, Maharashtra 412115
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="bi bi-envelope me-2"></i>
+                            cesa@isbmcoe.org
+                        </p>
+                        <p class="text-muted mb-4">
+                            <i class="bi bi-phone me-2"></i>
+                            +91 1234567890
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <hr class="mt-4 mb-3 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted mb-md-0">&copy; 2025 CESA. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-muted mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> by CESA Tech Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../assets/js/script2.js"></script>
+</body>
+</html> 

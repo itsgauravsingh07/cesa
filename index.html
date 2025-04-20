@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CESA - Computer Engineering Students Association</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="brand-container">
+                    <img src="assets/images/cesa-logo.png" alt="CESA Logo" class="brand-logo">
+                    <div class="brand-text">
+                        <span class="brand-title">CESA</span>
+                        <span class="brand-subtitle">ISBM College of Engineering</span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <div class="toggler-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="bi bi-house-door"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-info-circle"></i>
+                            <span>About Us</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="pages/about.html">About CESA</a></li>
+                            <li><a class="dropdown-item" href="pages/partners.html">Our Partners</a></li>
+                            <li><a class="dropdown-item" href="pages/charter.html">CESA Charter</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/events.html">
+                            <i class="bi bi-calendar-event"></i>
+                            <span>Events</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/register.html">
+                            <i class="bi bi-pencil-square"></i>
+                            <span>Register</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/team.html">
+                            <i class="bi bi-people"></i>
+                            <span>Team</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/gallery.html">
+                            <i class="bi bi-images"></i>
+                            <span>Gallery</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/verify.html">
+                            <i class="bi bi-award"></i>
+                            <span>Certificates</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/contact.html">
+                            <i class="bi bi-envelope"></i>
+                            <span>Contact Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login-link" href="pages/login.html">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            <span>Login</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold">Welcome to CESA</h1>
+                    <p class="lead">Empowering Computer Engineering Students at ISBM College of Engineering</p>
+                    <div class="mt-4">
+                        <a href="pages/about.html" class="btn btn-primary btn-lg me-3">Explore</a>
+                        <a href="pages/events.html" class="btn btn-outline-primary btn-lg">View Events</a>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="hero-image-container">
+                        <img src="assets/images/hero.png" alt="CESA Hero" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-particles" id="particles-js"></div>
+    </section>
+
+    <!-- CESA Overview Section -->
+    <section class="cesa-overview py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="overview-content">
+                        <h2 class="section-title">Computer Engineering Students Association</h2>
+                        <p class="lead">Empowering Future Tech Leaders</p>
+                        <div class="overview-text">
+                            <p>CESA is the official student-led body of the Computer Engineering Department at ISBM College of Engineering. We are dedicated to fostering technical excellence, innovation, and leadership among our students.</p>
+                            <div class="key-points">
+                                <div class="point">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Technical & Non-Technical Events</span>
+                                </div>
+                                <div class="point">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Industry-Academia Bridge</span>
+                                </div>
+                                <div class="point">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Skill Development Programs</span>
+                                </div>
+                                <div class="point">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Community Building</span>
+                                </div>
+                            </div>
+                            <a href="pages/about.html" class="btn btn-primary btn-lg mt-4">
+                                <i class="bi bi-arrow-right-circle me-2"></i>
+                                Learn More About CESA
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="overview-image">
+                        <img src="assets/images/hero2.png" alt="CESA Overview" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">About CESA</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="about-content">
+                        <h3>Who We Are</h3>
+                        <p>CESA is the official student body of the Computer Engineering Department at ISBM College of Engineering. We strive to bridge the gap between academia and industry by organizing various technical and non-technical events.</p>
+                        <h3 class="mt-4">Our Mission</h3>
+                        <p>To foster technical excellence, innovation, and leadership among computer engineering students through hands-on experience, industry exposure, and peer learning.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="about-stats">
+                        <div class="row text-center">
+                            <div class="col-6 mb-4">
+                                <div class="stat-card">
+                                    <h3 class="display-4 fw-bold">50+</h3>
+                                    <p>Active Members</p>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <div class="stat-card">
+                                    <h3 class="display-4 fw-bold">5+</h3>
+                                    <p>Events Organized</p>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <div class="stat-card">
+                                    <h3 class="display-4 fw-bold">1+</h3>
+                                    <p>Industry Partners</p>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <div class="stat-card">
+                                    <h3 class="display-4 fw-bold">500+</h3>
+                                    <p>Certificates Issued</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-5 bg-gradient">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Events</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="zoom-in">
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h3>Hackathons</h3>
+                        <p>24-hour coding competitions to solve real-world problems</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3>Workshops</h3>
+                        <p>Hands-on technical workshops on cutting-edge technologies</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3>Tech Talks</h3>
+                        <p>Industry experts sharing insights and experiences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-5 bg-gradient">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Leadership</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/faculty/Vilas-Joshi.jpg" alt="Faculty Coordinator" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Dr. Vilas R. Joshi</h4>
+                        <p>Associate Professor & CESA Faculty Coordinator</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/core/vedanth.jpg" alt="President" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Vedanth Bakwad</h4>
+                        <p>President</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="../assets/images/core/gaurav.jpeg" alt="Vice President" class="img-fluid rounded-circle">
+                        </div>
+                        <h4>Gaurav Singh</h4>
+                        <p>Vice President</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+                <a href="../pages/team.html" class="btn btn-primary btn-lg">
+                    <i class="bi bi-people me-2"></i>
+                    Meet Our Full Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Partners</h2>
+            
+            <!-- College Club Partners -->
+            <div class="partner-category">
+                <div class="row justify-content-center align-items-center g-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                        <div class="partner-logo">
+                            <img src="assets/images/partners/tpc.png" alt="Club 1" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                        <div class="partner-logo">
+                            <img src="assets/images/partners/Technical.jpg" alt="Club 2" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                        <div class="partner-logo">
+                            <img src="assets/images/partners/media.jpg" alt="Club 3" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                        <div class="partner-logo">
+                            <img src="assets/images/partners/cultural.jpg" alt="Club 4" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                        <div class="partner-logo">
+                            <img src="assets/images/partners/sports.jpg" alt="Club 5" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                        <div class="partner-logo">
+                            <img src="assets/images/partners/innovara.png" alt="Club 6" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner CTA -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="pages/partners.html" class="btn btn-primary btn-lg">
+                    <i class="bi bi-handshake me-2"></i>
+                    View All Partners
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand Column -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <img src="assets/images/cesa-logo.png" alt="CESA Logo" class="footer-logo mb-3">
+                        <h5 class="text-white mb-3">CESA - ISBM College of Engineering</h5>
+                        <p class="text-muted mb-0">Computer Engineering Students Association</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/events.html">Events</a></li>
+                        <li><a href="pages/team.html">Team</a></li>
+                        <li><a href="pages/gallery.html">Gallery</a></li>
+                        <li><a href="pages/verify.html">Certificates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Resources</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="pages/partners.html">Our Partners</a></li>
+                        <li><a href="pages/charter.html">CESA Charter</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Column -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <div class="contact-info">
+                        <p class="text-muted mb-3">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            ISBM College of Engineering, Nande, Pune, Maharashtra 412115
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="bi bi-envelope me-2"></i>
+                            cesa@isbmcoe.org
+                        </p>
+                        <p class="text-muted mb-4">
+                            <i class="bi bi-phone me-2"></i>
+                            +91 1234567890
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <hr class="mt-4 mb-3 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted mb-md-0">&copy; 2025 CESA. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-muted mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> by CESA Tech Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include Popup -->
+    <div id="popupContainer"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('pop-up.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('popupContainer').innerHTML = html;
+                    // Initialize popup after content is loaded
+                    setTimeout(() => {
+                        if (typeof showEventPopup === 'function') {
+                            showEventPopup();
+                        }
+                    }, 1500);
+                })
+                .catch(error => console.error('Error loading popup:', error));
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="assets/js/pop-up.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html> 

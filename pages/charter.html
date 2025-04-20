@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CESA Charter - ISBM College of Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <!-- PDF.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css" rel="stylesheet">
+    <style>
+        .charter-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .charter-section {
+            border-left: 3px solid var(--bs-primary);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .charter-text {
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 800px;
+            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+        }
+        .pdf-viewer canvas {
+            max-width: 100%;
+            height: auto !important;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .view-options {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .view-options .btn-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .view-options .btn {
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid #00ff9d;
+            color: #00ff9d;
+        }
+        .view-options .btn:hover {
+            background: rgba(0, 255, 157, 0.2);
+        }
+        .forms-section, .appendices-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .forms-section .btn, .appendices-section .btn {
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+        .forms-section .btn:hover, .appendices-section .btn:hover {
+            transform: translateX(10px);
+        }
+        .charter-tabs {
+            margin-bottom: 2rem;
+        }
+        .charter-tabs .nav-link {
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin-right: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .charter-tabs .nav-link.active {
+            background: var(--bs-primary);
+            border-color: var(--bs-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <div class="brand-container">
+                    <img src="../assets/images/cesa-logo.png" alt="CESA Logo" class="brand-logo">
+                    <div class="brand-text">
+                        <span class="brand-title">CESA</span>
+                        <span class="brand-subtitle">ISBM College of Engineering</span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <div class="toggler-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="bi bi-house-door"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-info-circle"></i>
+                            <span>About Us</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="about.html">About CESA</a></li>
+                            <li><a class="dropdown-item" href="partners.html">Our Partners</a></li>
+                            <li><a class="dropdown-item active" href="charter.html">CESA Charter</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">
+                            <i class="bi bi-calendar-event"></i>
+                            <span>Events</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">
+                            <i class="bi bi-people"></i>
+                            <span>Team</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">
+                            <i class="bi bi-images"></i>
+                            <span>Gallery</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="verify.html">
+                            <i class="bi bi-award"></i>
+                            <span>Certificates</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="bi bi-envelope"></i>
+                            <span>Contact Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login-link" href="login.html">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            <span>Login</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Charter Header -->
+    <section class="charter-header py-5">
+        <div class="container">
+            <div class="header-content text-center" data-aos="fade-up">
+                <h1 class="display-4 fw-bold">CESA Charter</h1>
+                <div class="header-divider"></div>
+                <p class="lead">Official Constitution and Guidelines of the Computer Engineering Students Association</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charter Content -->
+    <section class="charter-content py-5">
+        <div class="container">
+            <!-- View Options Tabs -->
+            <ul class="nav nav-pills charter-tabs" id="charterTabs" role="tablist" data-aos="fade-up">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="summary-tab" data-bs-toggle="pill" data-bs-target="#summary" type="button" role="tab">
+                        <i class="bi bi-card-text me-2"></i>Summary View
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pdf-tab" data-bs-toggle="pill" data-bs-target="#pdf" type="button" role="tab">
+                        <i class="bi bi-file-pdf me-2"></i>PDF View
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="charterTabsContent">
+                <!-- Summary View -->
+                <div class="tab-pane fade show active" id="summary" role="tabpanel">
+                    <div class="row">
+                        <!-- Main Charter Document -->
+                        <div class="col-lg-8">
+                            <div class="charter-container" data-aos="fade-up">
+                                <h2 class="mb-4">CESA Constitution</h2>
+                                
+                                <!-- Article I -->
+                                <div class="charter-section">
+                                    <h3>Article I: Name and Purpose</h3>
+                                    <div class="charter-text">
+                                        <p>The organization shall be known as the Computer Engineering Students Association (CESA) of ISBM College of Engineering.</p>
+                                        <p>The purpose of CESA is to:</p>
+                                        <ul>
+                                            <li>Foster technical excellence among computer engineering students</li>
+                                            <li>Promote professional development and leadership skills</li>
+                                            <li>Create networking opportunities with industry professionals</li>
+                                            <li>Organize technical and non-technical events</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Article II -->
+                                <div class="charter-section">
+                                    <h3>Article II: Membership</h3>
+                                    <div class="charter-text">
+                                        <p>Membership is open to all computer engineering students of ISBM College of Engineering who:</p>
+                                        <ul>
+                                            <li>Are currently enrolled in the computer engineering program</li>
+                                            <li>Maintain good academic standing</li>
+                                            <li>Pay the prescribed membership fees</li>
+                                            <li>Adhere to the CESA code of conduct</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Download Button -->
+                                <div class="text-center mt-5">
+                                    <a href="../assets/doc/CESA-Charter.pdf" class="btn btn-primary btn-lg" download>
+                                        <i class="bi bi-download me-2"></i>
+                                        Download Complete Charter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar with Forms -->
+                        <div class="col-lg-4">
+                            <div class="charter-sidebar" data-aos="fade-left">
+                                <!-- Forms Section -->
+                                <div class="forms-section mb-4">
+                                    <h3 class="mb-4">Important Forms</h3>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="../assets/docs/membership-form.pdf" class="btn btn-outline-primary w-100 text-start" download>
+                                                <i class="bi bi-person-plus me-2"></i>
+                                                Membership Application Form
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../assets/docs/event-proposal.pdf" class="btn btn-outline-primary w-100 text-start" download>
+                                                <i class="bi bi-calendar-plus me-2"></i>
+                                                Event Proposal Form
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../assets/docs/reimbursement.pdf" class="btn btn-outline-primary w-100 text-start" download>
+                                                <i class="bi bi-cash me-2"></i>
+                                                Reimbursement Form
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../assets/docs/feedback.pdf" class="btn btn-outline-primary w-100 text-start" download>
+                                                <i class="bi bi-chat-dots me-2"></i>
+                                                Event Feedback Form
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Appendices Section -->
+                                <div class="appendices-section">
+                                    <h3 class="mb-4">Appendices</h3>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="../assets/docs/code-of-conduct.pdf" class="btn btn-outline-secondary w-100 text-start" download>
+                                                <i class="bi bi-file-text me-2"></i>
+                                                Appendix A: Code of Conduct
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../assets/docs/election-rules.pdf" class="btn btn-outline-secondary w-100 text-start" download>
+                                                <i class="bi bi-file-text me-2"></i>
+                                                Appendix B: Election Rules
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../assets/docs/financial-guidelines.pdf" class="btn btn-outline-secondary w-100 text-start" download>
+                                                <i class="bi bi-file-text me-2"></i>
+                                                Appendix C: Financial Guidelines
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF View -->
+                <div class="tab-pane fade" id="pdf" role="tabpanel">
+                    <div class="view-options" data-aos="fade-up">
+                        <div class="btn-group">
+                            <button id="zoomIn" class="btn btn-primary">
+                                <i class="bi bi-zoom-in"></i>
+                            </button>
+                            <button id="zoomOut" class="btn btn-primary">
+                                <i class="bi bi-zoom-out"></i>
+                            </button>
+                            <button id="previousPage" class="btn btn-primary">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button id="nextPage" class="btn btn-primary">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                        <span class="ms-3 text-white">Page: <span id="pageNum"></span> / <span id="pageCount"></span></span>
+                    </div>
+                    <div id="pdfViewer" class="pdf-viewer" data-aos="fade-up"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand Column -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <img src="../assets/images/cesa-logo.png" alt="CESA Logo" class="footer-logo mb-3">
+                        <h5 class="text-white mb-3">CESA - ISBM College of Engineering</h5>
+                        <p class="text-muted mb-0">Computer Engineering Students Association</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="verify.html">Certificates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Resources</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="partners.html">Our Partners</a></li>
+                        <li><a href="charter.html">CESA Charter</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Column -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <div class="contact-info">
+                        <p class="text-muted mb-3">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            ISBM College of Engineering, Nande, Pune, Maharashtra 412115
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="bi bi-envelope me-2"></i>
+                            cesa@isbmcoe.org
+                        </p>
+                        <p class="text-muted mb-4">
+                            <i class="bi bi-phone me-2"></i>
+                            +91 1234567890
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <hr class="mt-4 mb-3 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted mb-md-0">&copy; 2025 CESA. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="text-muted mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> by CESA Tech Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // Initialize PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        let pdfDoc = null;
+        let pageNum = 1;
+        let pageRendering = false;
+        let pageNumPending = null;
+        let scale = 1.0; // Start with scale 1.0
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        document.getElementById('pdfViewer').appendChild(canvas);
+
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(function(page) {
+                // Calculate scale to fit the container width
+                const container = document.getElementById('pdfViewer');
+                const containerWidth = container.clientWidth - 60; // Subtract padding
+                const viewport = page.getViewport({ scale: 1.0 });
+                const scaleRequired = containerWidth / viewport.width;
+                scale = scaleRequired;
+
+                // Update viewport with new scale
+                const finalViewport = page.getViewport({ scale: scale });
+                canvas.height = finalViewport.height;
+                canvas.width = finalViewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: finalViewport
+                };
+                const renderTask = page.render(renderContext);
+
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('pageNum').textContent = num;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+
+        function zoomIn() {
+            scale *= 1.2;
+            queueRenderPage(pageNum);
+        }
+
+        function zoomOut() {
+            scale /= 1.2;
+            queueRenderPage(pageNum);
+        }
+
+        // Load the PDF
+        pdfjsLib.getDocument('../assets/doc/CESA-Charter.pdf').promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('pageCount').textContent = pdfDoc.numPages;
+            renderPage(pageNum);
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            document.getElementById('pdfViewer').innerHTML = '<div class="alert alert-danger">Error loading PDF. Please try again later.</div>';
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (pdfDoc) {
+                renderPage(pageNum);
+            }
+        });
+
+        document.getElementById('previousPage').addEventListener('click', onPrevPage);
+        document.getElementById('nextPage').addEventListener('click', onNextPage);
+        document.getElementById('zoomIn').addEventListener('click', zoomIn);
+        document.getElementById('zoomOut').addEventListener('click', zoomOut);
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+</html> 
