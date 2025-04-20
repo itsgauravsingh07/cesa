@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Gallery</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8f9fa; margin: 0; }
+    h1 { text-align: center; margin-top: 20px; }
+    .buttons {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 15px; margin: 20px 0;
+    }
+    .buttons button {
+      padding: 10px 20px; background: #007bff; color: white;
+      border: none; border-radius: 5px; cursor: pointer;
+      font-size: 16px; transition: background 0.3s;
+    }
+    .buttons button:hover {
+      background: #0056b3;
+    }
+    .gallery {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 20px; padding: 10px;
+    }
+    .gallery img {
+      width: 300px; height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>Event Gallery</h1>
+  <div class="buttons">
+    <button onclick="loadGallery('all')">All Events</button>
+    <button onclick="loadGallery('hacksprit')">HackSprit Hackathon</button>
+    <button onclick="loadGallery('project')">Project Competition</button>
+    <button onclick="loadGallery('painting')">Painting Competition</button>
+  </div>
+  <div class="gallery" id="gallery">Loading images...</div>
+
+  <script type="module">
+    import config from './config.js';
+  
+    const gallery = document.getElementById('gallery');
+  
+    async function fetchImages(folderId) {
+      const url = `${config.appScriptUrl}?folder=${folderId}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      return data.data; // [{name, url}]
+    }
+  
+    async function loadGallery(type) {
+      gallery.innerHTML = 'Loading images...';
+  
+      const folderIds = config.eventFolders[type];
+      const promises = folderIds.map(fetchImages);
+      const results = await Promise.all(promises);
+      const images = results.flat();
+  
+      renderGallery(images);
+    }
+  
+    function renderGallery(images) {
+      gallery.innerHTML = '';
+      if (images.length === 0) {
+        gallery.innerHTML = '<p>No images found.</p>';
+        return;
+      }
+  
+      images.forEach(image => {
+        const img = document.createElement('img');
+        img.src = image.url;
+        img.alt = image.name;
+        gallery.appendChild(img);
+      });
+    }
+  
+    // ✅ Make function accessible to buttons
+    window.loadGallery = loadGallery;
+  
+    // Default load
+    loadGallery('all');
+  </script>
+  
+</body>
+</html>

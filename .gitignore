@@ -1,13 +1,16 @@
-# Credentials and sensitive information
-credentials.json
-.env
-*.pem
-config.json
-
 # Dependencies
 node_modules/
-vendor/
 bower_components/
+vendor/
+
+# Environment and credentials
+.env
+.env.local
+.env.*.local
+config.js
+credentials.json
+*.pem
+*.key
 
 # Build outputs
 dist/
@@ -57,5 +60,5 @@ Thumbs.db
 *~
 
 # Local development files
-local.*
-*.local 
+*.local
+local.* 

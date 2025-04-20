@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - CESA</title>
+    <title>Gallery - CESA ISB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -90,47 +90,53 @@
     </nav>
 
     <!-- Gallery Header -->
-    <section class="events-header">
+    <section class="team-header text-center">
         <div class="container">
-            <div class="text-center mb-5">
-                <h1 class="display-4 fw-bold text-white mb-3" data-aos="fade-up">CESA Photo Gallery</h1>
-                <p class="lead text-white-50" data-aos="fade-up" data-aos-delay="100">
-                    Capturing memorable moments from our events and activities
+            <div class="header-content">
+                <h1 data-aos="fade-up">Our Gallery</h1>
+                <div class="header-divider" data-aos="fade-up" data-aos-delay="100"></div>
+                <p class="lead text-white-50" data-aos="fade-up" data-aos-delay="200">
+                    Explore our events and activities through our photo gallery
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery-container">
+    <section class="gallery-section py-5">
         <div class="container">
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Gallery items will be loaded here -->
-                <div class="text-center py-5">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <p class="text-white mt-3">Loading gallery images...</p>
+            <!-- Filter Buttons -->
+            <div class="filter-buttons text-center mb-4" data-aos="fade-up">
+                <button class="btn btn-outline-primary active mx-2 mb-2" onclick="loadGallery('all')">
+                    <i class="bi bi-grid-3x3"></i> All Events
+                </button>
+                <button class="btn btn-outline-primary mx-2 mb-2" onclick="loadGallery('hacksprit')">
+                    <i class="bi bi-code-slash"></i> HackSprit
+                </button>
+                <button class="btn btn-outline-primary mx-2 mb-2" onclick="loadGallery('project')">
+                    <i class="bi bi-lightbulb"></i> Projects
+                </button>
+                <button class="btn btn-outline-primary mx-2 mb-2" onclick="loadGallery('painting')">
+                    <i class="bi bi-palette"></i> Art Gallery
+                </button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
+            </div>
+
+            <!-- Error Display -->
+            <div id="error" class="alert alert-danger d-none" role="alert"></div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery-container" class="gallery-grid">
+                <!-- Images will be loaded here -->
             </div>
         </div>
     </section>
-
-    <!-- Gallery Modal -->
-    <div class="gallery-modal" id="galleryModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">
-                <i class="bi bi-x-lg"></i>
-            </button>
-            <button class="modal-nav modal-prev" id="modalPrev">
-                <i class="bi bi-chevron-left"></i>
-            </button>
-            <button class="modal-nav modal-next" id="modalNext">
-                <i class="bi bi-chevron-right"></i>
-            </button>
-            <img src="" alt="Gallery Image" id="modalImage">
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer py-5">
@@ -210,18 +216,120 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module">
+        import config from '../config.js';
+
         // Initialize AOS
         AOS.init({
             duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
+            once: true
         });
+
+        const galleryContainer = document.getElementById('gallery-container');
+        const loadingElement = document.getElementById('loading');
+        const errorElement = document.getElementById('error');
+
+        function showLoading() {
+            loadingElement.style.display = 'block';
+            galleryContainer.style.opacity = '0.5';
+            errorElement.classList.add('d-none');
+        }
+
+        function hideLoading() {
+            loadingElement.style.display = 'none';
+            galleryContainer.style.opacity = '1';
+        }
+
+        function showError(message) {
+            errorElement.textContent = message;
+            errorElement.classList.remove('d-none');
+            hideLoading();
+        }
+
+        async function fetchImages(folderId) {
+            try {
+                const url = `${config.appScriptUrl}?folder=${folderId}`;
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch images');
+                }
+                const data = await response.json();
+                return data.data;
+            } catch (error) {
+                console.error('Error fetching images:', error);
+                return [];
+            }
+        }
+
+        async function loadGallery(type) {
+            showLoading();
+            try {
+                const folderIds = config.eventFolders[type];
+                const promises = folderIds.map(fetchImages);
+                const results = await Promise.all(promises);
+                const images = results.flat();
+                renderGallery(images);
+            } catch (error) {
+                showError('Failed to load gallery images. Please try again later.');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        function renderGallery(images) {
+            if (images.length === 0) {
+                galleryContainer.innerHTML = '<p class="text-center text-white-50">No images found.</p>';
+                return;
+            }
+
+            galleryContainer.innerHTML = images.map(image => `
+                <div class="gallery-item" data-aos="fade-up">
+                    <div class="gallery-image-container">
+                        <img src="${image.url}" 
+                             alt="${image.name}"
+                             loading="lazy"
+                             onerror="this.src='../assets/images/cesa-logo.png'"
+                             onclick="openLightbox('${image.url}', '${image.name}')" />
+                        <div class="gallery-caption">
+                            <h5>${image.name}</h5>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Refresh AOS
+            AOS.refresh();
+        }
+
+        // Make loadGallery accessible globally
+        window.loadGallery = loadGallery;
+
+        // Lightbox functionality
+        window.openLightbox = function(imageUrl, title) {
+            const modal = document.createElement('div');
+            modal.className = 'lightbox';
+            modal.innerHTML = `
+                <div class="lightbox-content">
+                    <span class="close-lightbox">&times;</span>
+                    <img src="${imageUrl}" alt="${title}" />
+                    <div class="lightbox-caption">${title}</div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            modal.onclick = (e) => {
+                if (e.target.className === 'lightbox' || e.target.className === 'close-lightbox') {
+                    document.body.removeChild(modal);
+                }
+            };
+        }
+
+        // Load all images by default
+        loadGallery('all');
     </script>
-    <script src="../assets/js/script.js"></script>
-    <script src="../assets/js/gallery.js"></script>
 </body>
 </html> 
